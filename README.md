@@ -2,6 +2,8 @@
 
 > Based on [Core2-for-AWS-IoT-EduKit](https://github.com/m5stack/Core2-for-AWS-IoT-EduKit) and [AWS IoT EduKit Workshop](https://edukit.workshop.aws/en/).
 
+![AWS IoT EduKit](/docs/edukit-box.jpg)
+
 ## Prerequisites
 
 Install `v4.2` of [esp-idf](https://github.com/espressif/esp-idf).
