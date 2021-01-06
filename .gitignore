@@ -3,3 +3,7 @@ build
 
 sdkconfig
 sdkconfig.old
+
+tmp
+
+__pycache__
