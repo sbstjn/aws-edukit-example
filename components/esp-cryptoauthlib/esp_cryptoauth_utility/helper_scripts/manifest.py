@@ -213,7 +213,8 @@ def generate_manifest_file(esp, args, init_mfg):
     device_cert_pem = device_cert.public_bytes(encoding=Encoding.PEM).decode('utf-8')
     print(device_cert_pem)
     print("Saving device cert to output_files")
-    with open("./output_files/device_cert.pem", "w+") as dev_cert_file:
+    
+    with open(os.path.join(args.basepath, "device_cert.pem"), "w+") as dev_cert_file:
         dev_cert_file.write(device_cert_pem)
     print('TNG Device Public Key:')
     # Note that we could, of course, pull this from the device certificate above.
@@ -303,6 +304,6 @@ def generate_manifest_file(esp, args, init_mfg):
 
     filename = make_valid_filename(device_entry['uniqueId']) + '_manifest' + '.json'
     os.getcwd()
-    with open('./output_files/' + filename, 'wb') as f:
+    with open(os.path.join(args.basepath, filename), 'wb') as f:
         f.write(manifest)
-    print('\n\nGenerated the manifest file ' + filename + ' in output_files')
+    print('Created: ' + filename)
