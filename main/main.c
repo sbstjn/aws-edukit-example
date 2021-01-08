@@ -92,20 +92,24 @@ void initialize_NVS(void)
        ESP_ERROR_CHECK(err);
 }
 
-void initialize(void)
+void connect_IOT(void)
 {
-       initialize_NVS();
-       initialize_AWS();
-       display_init();
-
-       initialise_wifi();
-       initialize_crypto();
+       xTaskCreatePinnedToCore(&aws_iot_task, "aws_iot_task", 9216, NULL, 5, NULL, 1);
 }
 
 void app_main(void)
 {
        show_hardware_info();
-       initialize();
+
+       initialize_NVS();
+       initialize_AWS();
+
+       display_init();
+
+       initialise_wifi();
+       initialize_crypto();
 
        display_clientId();
+
+       connect_IOT();
 }

@@ -1,4 +1,4 @@
-menu "AWS Configuration"
+menu "Network Configuration"
 
     config WIFI_SSID
         string "WiFi SSID"
